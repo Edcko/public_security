@@ -1,0 +1,31 @@
+# Dockerfile para Producción (DigitalOcean VPS)
+
+FROM node:20-alpine AS base
+
+# Instalar dependencias necesarias para compilation
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /app
+
+# Copiar archivos de proyecto
+COPY package.json package-lock.json* ./
+COPY tsconfig.json ./
+
+# Instalar dependencias
+RUN npm ci --only=production && npm cache clean --force
+
+# Copiar código fuente
+COPY . .
+
+# Construir aplicación
+RUN npm run build
+
+# Exponer puerto
+EXPOSE 3000
+
+# Variable de entorno
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Iniciar aplicación
+CMD ["npm", "start"]

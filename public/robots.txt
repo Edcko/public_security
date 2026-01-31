@@ -1,0 +1,13 @@
+# robots.txt para Sistema Nacional de Gestión Policial
+
+User-agent: *
+Allow: /
+
+# Disallow access to API routes
+Disallow: /api/
+
+# Disallow access to test routes
+Disallow: /test/
+
+# Sitemap
+Sitemap: https://seguridad-publica.gob.mx/sitemap.xml
