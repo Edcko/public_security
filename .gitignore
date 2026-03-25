@@ -45,6 +45,13 @@ next-env.d.ts
 *.swp
 *.swo
 
+# AI assistants
+.claude/
+
+# Temp/generated folders
+/logs/
+/backups/
+
 # OS
 Thumbs.db
 
