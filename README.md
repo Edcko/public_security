@@ -179,7 +179,7 @@ CREATE POLICY personnel_isolation ON personnel
 
 1. **Clonar repositorio**
 ```bash
-git clone https://github.com/tu-usuario/public-security.git
+git clone https://github.com/Edcko/public_security.git
 cd public-security
 ```
 
@@ -476,7 +476,7 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 
 ## 👥 Autores
 
-- **Tu Nombre** - *Desarrollo inicial* - [GitHub](https://github.com/tu-usuario)
+- **Misael Rosas Carballo** - *Desarrollo inicial* - [GitHub](https://github.com/Edcko)
 
 ---
 
@@ -490,7 +490,7 @@ Este proyecto está licenciado bajo la Licencia MIT - ver el archivo [LICENSE](L
 
 ## 📞 Soporte
 
-Para soporte, email support@seguridad.gob.mx o abre un issue en GitHub.
+Para soporte, abre un issue en este repositorio.
 
 ---
 
