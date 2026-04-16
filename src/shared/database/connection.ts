@@ -8,7 +8,11 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://admin:password@localhost:5432/public_security';
+// SECURITY: No hardcoded credentials. DATABASE_URL must be explicitly set.
+const connectionString = process.env.DATABASE_URL;
+if (!connectionString) {
+  throw new Error('DATABASE_URL environment variable is required. Set it in .env or your deployment config.');
+}
 
 // Cliente PostgreSQL con connection pooling
 export const client = postgres(connectionString, {

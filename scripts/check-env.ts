@@ -6,7 +6,11 @@
 
 import postgres from 'postgres';
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://admin:password@localhost:5432/public_security';
+const DATABASE_URL = process.env.DATABASE_URL;
+if (!DATABASE_URL) {
+  console.error('❌ DATABASE_URL environment variable is required');
+  process.exit(1);
+}
 const REDIS_HOST = process.env.REDIS_HOST || 'localhost';
 const REDIS_PORT = process.env.REDIS_PORT || 6379;
 

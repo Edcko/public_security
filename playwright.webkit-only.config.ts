@@ -26,7 +26,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: 'DATABASE_URL="postgresql://admin:password@localhost:5433/public_security" npm run dev',
+    command: 'DATABASE_URL="${TEST_DATABASE_URL:-$DATABASE_URL}" npm run dev',
     url: 'http://localhost:3000',
     reuseExistingServer: true,
     timeout: 120 * 1000,

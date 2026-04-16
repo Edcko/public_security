@@ -13,7 +13,11 @@ export const gpsService = {
    */
   async startConsumer() {
     try {
-      const connection = await amqp.connect(process.env.RABBITMQ_URL || 'amqp://admin:password@localhost:5672');
+      const rabbitUrl = process.env.RABBITMQ_URL;
+      if (!rabbitUrl) {
+        throw new Error('RABBITMQ_URL environment variable is required for GPS tracking');
+      }
+      const connection = await amqp.connect(rabbitUrl);
       const channel = await connection.createChannel();
 
       const queue = 'gps-updates';

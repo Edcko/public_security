@@ -5,6 +5,6 @@ export default {
   out: './drizzle',
   dialect: 'postgresql',
   dbCredentials: {
-    url: process.env.DATABASE_URL || 'postgresql://admin:password@localhost:5432/public_security',
+    url: process.env.DATABASE_URL ?? (() => { throw new Error('DATABASE_URL environment variable is required') })(),
   },
 } satisfies Config;

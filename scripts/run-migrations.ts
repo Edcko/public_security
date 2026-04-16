@@ -17,7 +17,12 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://admin:password@localhost:5432/public_security';
+const DATABASE_URL = process.env.DATABASE_URL;
+if (!DATABASE_URL) {
+  console.error('❌ DATABASE_URL environment variable is required');
+  console.error('   Set it in .env or export it before running migrations');
+  process.exit(1);
+}
 const MIGRATIONS_DIR = join(__dirname, '../migrations');
 
 interface Migration {
